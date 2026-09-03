@@ -1,0 +1,26 @@
+<div class="auth-container">
+
+  <h2>Login</h2>
+
+  <input 
+    type="email"
+    placeholder="Email"
+    [(ngModel)]="email" />
+
+  <input 
+    type="password"
+    placeholder="Password"
+    [(ngModel)]="password" />
+
+  <button (click)="login()" [disabled]="loading">
+    {{ loading ? 'Logging in...' : 'Login' }}
+  </button>
+
+  <p>
+    Don't have an account?
+    <a routerLink="/register">Register</a>
+  </p>
+
+  <p style="color:red" *ngIf="error">{{ error }}</p>
+
+</div>

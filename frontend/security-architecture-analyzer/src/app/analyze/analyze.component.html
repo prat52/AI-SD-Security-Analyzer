@@ -1,0 +1,170 @@
+<!-- <h2>AI System Design Security Reviewer</h2>
+
+<textarea
+  rows="12"
+  placeholder="Paste your system design architecture here..."
+  [(ngModel)]="architectureText">
+</textarea>
+
+<br /><br />
+
+<button (click)="analyze()">Analyze</button>
+
+<p *ngIf="loading">Analyzing...</p>
+
+<pre *ngIf="result">
+{{ result }}
+</pre> -->
+
+<!-- new -->
+<!-- 
+<div class="container">
+  <div class="card">
+
+    <h2>🔐 AI System Design Security Reviewer</h2>
+
+  
+
+    <textarea
+      rows="10"
+      placeholder="Paste your system design architecture here..."
+      [(ngModel)]="architectureText">
+    </textarea>
+
+    <button 
+      (click)="analyze()" 
+      [disabled]="loading">
+      {{ loading ? 'Analyzing...' : 'Analyze Architecture' }}
+    </button>
+
+    <div *ngIf="result?.findings?.length" class="results">
+      <h3>Security Findings</h3>
+
+      <div 
+        class="finding-card" 
+        *ngFor="let finding of result?.findings">
+
+        <div class="header">
+          <span class="title">{{ finding.title }}</span>
+          <span class="severity" [ngClass]="finding.severity.toLowerCase()">
+            {{ finding.severity }}
+          </span>
+        </div>
+
+        <div class="details">
+          <p><strong>STRIDE:</strong> {{ finding.stride }}</p>
+          <p><strong>OWASP:</strong> {{ finding.owasp }}</p>
+          <p><strong>MITRE:</strong> {{ finding.mitre.join(', ') }}</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div> -->
+
+<div class="container">
+
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+  
+</div>
+
+  <!-- INPUT CARD -->
+  <div class="card">
+
+    <h2>🔐 AI System Design Security Reviewer</h2>
+
+    <textarea
+      rows="10"
+      placeholder="Paste your system design architecture here..."
+      [(ngModel)]="architectureText">
+    </textarea>
+
+    <button 
+      (click)="analyze()" 
+      [disabled]="loading">
+      {{ loading ? 'Analyzing...' : 'Analyze Architecture' }}
+    </button>
+
+     
+    <button (click)="loadArchitectures()">
+  View My Architectures
+</button>
+  
+
+  </div>
+
+  <!-- RESULTS SECTION (OUTSIDE CARD) -->
+
+   
+  <div *ngIf="result?.findings?.length" class="results">
+
+    <h3>Security Findings</h3>
+
+    <div 
+      class="finding-card" 
+      *ngFor="let finding of result?.findings">
+
+      <div class="header">
+        <span class="title">{{ finding.title }}</span>
+        <span class="severity" [ngClass]="finding.severity.toLowerCase()">
+          {{ finding.severity }}
+        </span>
+      </div>
+
+      <div class="details">
+        <p><strong>STRIDE:</strong> {{ finding.stride }}</p>
+        <p><strong>OWASP:</strong> {{ finding.owasp }}</p>
+        <p><strong>MITRE:</strong> {{ finding.mitre.join(', ') }}</p>
+        <p><strong>Recommendation:</strong> {{ finding.recommendation }}</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div *ngIf="architectures.length">
+
+  <h2>My Previous Architectures</h2>
+
+  <div 
+    class="finding-card"
+    *ngFor="let arch of architectures">
+
+    <h3>Architecture</h3>
+
+    <p>{{ arch.content }}</p>
+
+    <div *ngIf="arch.response?.findings">
+
+      <div 
+        *ngFor="let finding of arch.response.findings">
+
+        <hr>
+
+        <p><strong>Title:</strong> {{ finding.title }}</p>
+
+        <p><strong>Severity:</strong> {{ finding.severity }}</p>
+
+        <p><strong>STRIDE:</strong> {{ finding.stride }}</p>
+
+        <p><strong>OWASP:</strong> {{ finding.owasp }}</p>
+
+        <p><strong>MITRE:</strong> {{ finding.mitre.join(', ') }}</p>
+
+        <p><strong>Recommendation:</strong> {{ finding.recommendation }}</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+ 
+
+  <button (click)="logout()">Logout</button>
+
+</div>
+
