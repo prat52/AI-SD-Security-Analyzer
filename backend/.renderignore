@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+security_docs/
+*.pdf
+ingest.py
+test.py
