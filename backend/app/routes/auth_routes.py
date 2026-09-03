@@ -1,5 +1,4 @@
 from fastapi import APIRouter, Depends, HTTPException
-from flask import app
 from sqlalchemy.orm import Session
 from app.database.database import get_db
 from app.models.user import User
