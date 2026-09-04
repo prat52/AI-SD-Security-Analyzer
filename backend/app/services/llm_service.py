@@ -47,19 +47,31 @@ Analyze this architecture from a security perspective.
 
 Identify:
 - Authentication issues
-- Authorization issues
+- Authorization issues  
 - Data protection issues
 - Network security issues
 - Infrastructure risks
 - Cloud security risks
 - DevSecOps risks
 
-Return ONLY valid JSON.
+Return ONLY valid JSON in this exact format:
+{{
+  "findings": [
+    {{
+      "title": "string",
+      "severity": "LOW|MEDIUM|HIGH|CRITICAL",
+      "stride": "string",
+      "owasp": "string",
+      "mitre": ["string"],
+      "recommendation": "string"
+    }}
+  ]
+}}
 """
 
 
     response = client.chat.completions.create(
-    model="openai/gpt-oss-20b",
+    model="qwen/qwen3.8-27b",
     messages=[
         {
             "role": "system",
@@ -100,7 +112,7 @@ Return ONLY valid JSON.
     print(security_context)
 
     print("Raw LLM Output:")
-    print(raw_output)
+    print(repr(raw_output))
 
     try:
         parsed_json = extract_json(raw_output)
