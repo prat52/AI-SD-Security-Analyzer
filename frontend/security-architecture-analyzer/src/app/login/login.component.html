@@ -1,26 +1,33 @@
 <div class="auth-container">
+  <div class="brand">
+    <span class="prompt">&gt;</span> login
+  </div>
 
-  <h2>Login</h2>
+  <h2>Welcome back</h2>
+  <p class="subtitle">Sign in to your security analyzer</p>
 
-  <input 
-    type="email"
-    placeholder="Email"
-    [(ngModel)]="email" />
+  <div class="form-group">
+    <input
+      type="email"
+      placeholder="Email address"
+      [(ngModel)]="email" />
+  </div>
 
-  <input 
-    type="password"
-    placeholder="Password"
-    [(ngModel)]="password" />
+  <div class="form-group">
+    <input
+      type="password"
+      placeholder="Password"
+      [(ngModel)]="password" />
+  </div>
 
   <button (click)="login()" [disabled]="loading">
-    {{ loading ? 'Logging in...' : 'Login' }}
+    {{ loading ? 'Signing in...' : 'Login' }}
   </button>
 
-  <p>
+  <p class="switch">
     Don't have an account?
     <a routerLink="/register">Register</a>
   </p>
 
-  <p style="color:red" *ngIf="error">{{ error }}</p>
-
+  <p class="msg error" *ngIf="error">{{ error }}</p>
 </div>

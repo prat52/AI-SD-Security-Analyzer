@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html'
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
   name = '';
@@ -23,15 +24,14 @@ export class RegisterComponent {
     this.error = '';
     this.success = '';
 
-    this.http.post(`${this.apiUrl}/auth/register`, {
-      name: this.name, 
+    this.http.post(`${this.apiUrl}/auth/register`, { 
       email: this.email,
       password: this.password
     }).subscribe({
       next: () => {
         this.success = 'Registration successful! Redirecting...';
         setTimeout(() => {
-          this.router.navigate(['/login']); // 🔥 Navigate to login
+          this.router.navigate(['/login']);
         }, 1500);
       },
       error: (err) => {

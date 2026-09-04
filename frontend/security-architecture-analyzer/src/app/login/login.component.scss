@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background: #080c14;
+  height: 100%;
+}
+
+app-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #080c14;
+  background-image: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(30, 64, 120, 0.3) 0%, transparent 70%);
+  font-family: 'Inter', sans-serif;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 48px 40px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.brand {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #3b82f6;
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+
+  .prompt {
+    opacity: 0.5;
+    margin-right: 4px;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #e8edf5;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+  margin: 0 0 32px 0;
+}
+
+.form-group {
+  margin-bottom: 12px;
+
+  input {
+    width: 100%;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #e8edf5;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    &:focus {
+      border-color: #3b82f6;
+      background: rgba(59, 130, 246, 0.05);
+    }
+  }
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover:not(:disabled) {
+    background: #2563eb;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.switch {
+  margin-top: 20px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+  text-align: center;
+
+  a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.msg {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+
+  &.error {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+  }
+}
