@@ -25,7 +25,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class AnalysisService {
 
-  private API_URL = 'http://localhost:8000/api/analyze'; 
+  private API_URL = 'https://ai-sd-security-analyzer.onrender.com/api/analyze'; 
   // make sure this matches your backend route
 
   constructor(private http: HttpClient) {}

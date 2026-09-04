@@ -7,10 +7,9 @@ from app.routes import architecture_routes, auth_routes
 
 app = FastAPI(title="AI Security Architecture Analyzer")
 
-# ✅ CORS must be FIRST before everything
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:4200"],  # ← explicit, not *
+    allow_origins=["http://localhost:4200","https://ai-sd-security-analyzer.vercel.app"],  # ← explicit, not *
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

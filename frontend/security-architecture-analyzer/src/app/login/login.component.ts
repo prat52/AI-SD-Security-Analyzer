@@ -16,7 +16,7 @@ export class LoginComponent {
   error = '';
   
 
-  apiUrl = 'http://127.0.0.1:8000';
+  apiUrl = 'https://ai-sd-security-analyzer.onrender.com';
 
   constructor(private http: HttpClient, private router: Router) {}
 
