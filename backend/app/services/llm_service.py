@@ -101,7 +101,7 @@ Return ONLY valid JSON in this exact format:
         }
     ],
     temperature=0.1,       # ← lower temperature for more deterministic output
-    max_tokens=1500        # ← increase tokens so JSON doesn't get cut off
+    max_tokens=900        # ← increase tokens so JSON doesn't get cut off
 )
     print("\n========== FINAL PROMPT ==========")
     print(enhanced_prompt)
